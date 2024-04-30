@@ -9,7 +9,7 @@ import { getAllContracts } from "~~/utils/scaffold-eth/contractsData";
 
 const contractsData = getAllContracts();
 
-const GameRequiredHooks: string[] = ["LogoffSystem"];
+const GameRequiredHooks: string[] = ["MoveSystem", "HitSystem", "LogoffSystem", "MineSystem"];
 
 export const RegisterBiomes: React.FC = ({}) => {
   const { address: connectedAddress } = useAccount();
@@ -88,7 +88,9 @@ export const RegisterBiomes: React.FC = ({}) => {
               <h3 className="text-xl font-bold text-left mt-8">HOOKS</h3>
               <CardSection
                 relevantSystems={GameRequiredHooks}
-                description={"Description of why you need the player to register the hooks on LogoffSystem"}
+                description={
+                  "Move hook, hit hook, and logoff hook prevent the player from moving outside match area, hitting players before match starts, or logging off during the match. Mine hook tracks kills from gravity."
+                }
               >
                 <RegisterHookButton
                   hookAddress={contractsData["Game"].address}
