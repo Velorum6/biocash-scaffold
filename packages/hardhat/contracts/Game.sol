@@ -50,7 +50,10 @@ contract Game is IOptionalSystemHook {
     bytes32 callDataHash
   ) external override onlyBiomeWorld {
     require(!isGameOver, "Game is already over.");
-    require(getEntityFromPlayer(msgSender) != bytes32(0), "Player entity not found in Biome world");
+    require(
+      getEntityFromPlayer(msgSender) != bytes32(0),
+      "You Must First Spawn An Avatar In Biome-1 To Play The Game."
+    );
   }
 
   function onAfterCallSystem(
