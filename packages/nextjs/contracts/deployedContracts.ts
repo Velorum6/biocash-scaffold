@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   690: {
     Game: {
-      address: "0x5Ed47a9dC4d4fe78a012bb550702F70608D22a19",
+      address: "0xcCF3DD4D55c03B7fE19d598E1E05548Ab3792e92",
       abi: [
         {
           inputs: [
@@ -1079,6 +1079,421 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        onAfterCallSystem: "@latticexyz/world/src/IOptionalSystemHook.sol",
+        onBeforeCallSystem: "@latticexyz/world/src/IOptionalSystemHook.sol",
+        onRegisterHook: "@latticexyz/world/src/IOptionalSystemHook.sol",
+        onUnregisterHook: "@latticexyz/world/src/IOptionalSystemHook.sol",
+        supportsInterface: "@latticexyz/world/src/IOptionalSystemHook.sol",
+      },
+    },
+  },
+  31337: {
+    Game: {
+      address: "0x927b167526bAbB9be047421db732C663a0b77B11",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_biomeWorldAddress",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes",
+              name: "data",
+              type: "bytes",
+            },
+            {
+              internalType: "uint256",
+              name: "start",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "end",
+              type: "uint256",
+            },
+          ],
+          name: "Slice_OutOfBounds",
+          type: "error",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "balance",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "biomeWorldAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllBalances",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "player",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "balance",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct PlayerBalance[]",
+              name: "playerBalances",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllLastHitters",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "player",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "lastHitter",
+                  type: "address",
+                },
+              ],
+              internalType: "struct PlayerHitter[]",
+              name: "playerLastHitters",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllLastWithdrawals",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "player",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "lastWithdrawal",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct PlayerWithdrawal[]",
+              name: "playerWithdrawals",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getBalancesLeaderboard",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "player",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "balance",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct LeaderboardEntry[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getRegisteredPlayerEntityIds",
+          outputs: [
+            {
+              internalType: "bytes32[]",
+              name: "",
+              type: "bytes32[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getRegisteredPlayers",
+          outputs: [
+            {
+              internalType: "address[]",
+              name: "",
+              type: "address[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "player",
+              type: "address",
+            },
+          ],
+          name: "isPlayerRegistered",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "lastHitter",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "lastWithdrawal",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "msgSender",
+              type: "address",
+            },
+            {
+              internalType: "ResourceId",
+              name: "systemId",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "callData",
+              type: "bytes",
+            },
+          ],
+          name: "onAfterCallSystem",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "msgSender",
+              type: "address",
+            },
+            {
+              internalType: "ResourceId",
+              name: "systemId",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "callData",
+              type: "bytes",
+            },
+          ],
+          name: "onBeforeCallSystem",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "msgSender",
+              type: "address",
+            },
+            {
+              internalType: "ResourceId",
+              name: "systemId",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint8",
+              name: "enabledHooksBitmap",
+              type: "uint8",
+            },
+            {
+              internalType: "bytes32",
+              name: "callDataHash",
+              type: "bytes32",
+            },
+          ],
+          name: "onRegisterHook",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "msgSender",
+              type: "address",
+            },
+            {
+              internalType: "ResourceId",
+              name: "systemId",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint8",
+              name: "enabledHooksBitmap",
+              type: "uint8",
+            },
+            {
+              internalType: "bytes32",
+              name: "callDataHash",
+              type: "bytes32",
+            },
+          ],
+          name: "onUnregisterHook",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "players",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "registerPlayer",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes4",
+              name: "interfaceId",
+              type: "bytes4",
+            },
+          ],
+          name: "supportsInterface",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdraw",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
