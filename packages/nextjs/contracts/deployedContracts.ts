@@ -5,9 +5,9 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  17069: {
+  690: {
     Game: {
-      address: "0x0c5457963C786204a0022e8EC25De774b7080B6f",
+      address: "0xDaeAeb19d2b2fde49b613e687F9794544A2FBb6c",
       abi: [
         {
           inputs: [
@@ -90,7 +90,7 @@ const deployedContracts = {
                   type: "uint256",
                 },
               ],
-              internalType: "struct Game.PlayerBalance[]",
+              internalType: "struct PlayerBalance[]",
               name: "playerBalances",
               type: "tuple[]",
             },
@@ -115,7 +115,7 @@ const deployedContracts = {
                   type: "address",
                 },
               ],
-              internalType: "struct Game.PlayerHitter[]",
+              internalType: "struct PlayerHitter[]",
               name: "playerLastHitters",
               type: "tuple[]",
             },
@@ -140,7 +140,7 @@ const deployedContracts = {
                   type: "uint256",
                 },
               ],
-              internalType: "struct Game.PlayerWithdrawal[]",
+              internalType: "struct PlayerWithdrawal[]",
               name: "playerWithdrawals",
               type: "tuple[]",
             },
@@ -165,7 +165,7 @@ const deployedContracts = {
                   type: "uint256",
                 },
               ],
-              internalType: "struct Game.LeaderboardEntry[]",
+              internalType: "struct LeaderboardEntry[]",
               name: "",
               type: "tuple[]",
             },
@@ -420,9 +420,9 @@ const deployedContracts = {
       },
     },
   },
-  31337: {
+  17069: {
     Game: {
-      address: "0x32EEce76C2C2e8758584A83Ee2F522D4788feA0f",
+      address: "0xae60eCEFf66A56771965817456190AF11D89357f",
       abi: [
         {
           inputs: [
@@ -455,25 +455,6 @@ const deployedContracts = {
           ],
           name: "Slice_OutOfBounds",
           type: "error",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "balance",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
         },
         {
           inputs: [],
@@ -569,8 +550,13 @@ const deployedContracts = {
             },
             {
               internalType: "uint256",
-              name: "_submissionPrice",
+              name: "submissionPrice",
               type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
             },
           ],
           name: "create",
@@ -579,40 +565,94 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_account",
-              type: "address",
-            },
-          ],
-          name: "getBalance",
+          inputs: [],
+          name: "getAllBlueprints",
           outputs: [
             {
-              internalType: "uint256",
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "uint8[]",
+                      name: "objectTypeIds",
+                      type: "uint8[]",
+                    },
+                    {
+                      components: [
+                        {
+                          internalType: "int16",
+                          name: "x",
+                          type: "int16",
+                        },
+                        {
+                          internalType: "int16",
+                          name: "y",
+                          type: "int16",
+                        },
+                        {
+                          internalType: "int16",
+                          name: "z",
+                          type: "int16",
+                        },
+                      ],
+                      internalType: "struct VoxelCoord[]",
+                      name: "relativePositions",
+                      type: "tuple[]",
+                    },
+                  ],
+                  internalType: "struct Build",
+                  name: "blueprint",
+                  type: "tuple",
+                },
+              ],
+              internalType: "struct BlueprintPair[]",
               name: "",
-              type: "uint256",
+              type: "tuple[]",
             },
           ],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_id",
-              type: "uint256",
-            },
-          ],
-          name: "getBlueprint",
+          inputs: [],
+          name: "getAllBuilders",
           outputs: [
             {
               components: [
                 {
-                  internalType: "uint8[]",
-                  name: "objectTypeIds",
-                  type: "uint8[]",
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address[]",
+                  name: "builderAddresses",
+                  type: "address[]",
+                },
+              ],
+              internalType: "struct BuilderList[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllLocations",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
                 },
                 {
                   components: [
@@ -633,66 +673,11 @@ const deployedContracts = {
                     },
                   ],
                   internalType: "struct VoxelCoord[]",
-                  name: "relativePositions",
+                  name: "location",
                   type: "tuple[]",
                 },
               ],
-              internalType: "struct Build",
-              name: "",
-              type: "tuple",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_id",
-              type: "uint256",
-            },
-          ],
-          name: "getBuilders",
-          outputs: [
-            {
-              internalType: "address[]",
-              name: "",
-              type: "address[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_id",
-              type: "uint256",
-            },
-          ],
-          name: "getLocations",
-          outputs: [
-            {
-              components: [
-                {
-                  internalType: "int16",
-                  name: "x",
-                  type: "int16",
-                },
-                {
-                  internalType: "int16",
-                  name: "y",
-                  type: "int16",
-                },
-                {
-                  internalType: "int16",
-                  name: "z",
-                  type: "int16",
-                },
-              ],
-              internalType: "struct VoxelCoord[]",
+              internalType: "struct LocationPair[]",
               name: "",
               type: "tuple[]",
             },
@@ -701,19 +686,154 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
+          inputs: [],
+          name: "getAllNames",
+          outputs: [
             {
-              internalType: "uint256",
-              name: "_id",
-              type: "uint256",
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+              ],
+              internalType: "struct NamePair[]",
+              name: "",
+              type: "tuple[]",
             },
           ],
-          name: "getSubmissionPrice",
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllSubmissionPrices",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "price",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct SubmissionPricePair[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getEarned",
           outputs: [
             {
               internalType: "uint256",
               name: "",
               type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getList",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "id",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "price",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address[]",
+                  name: "builders",
+                  type: "address[]",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "uint8[]",
+                      name: "objectTypeIds",
+                      type: "uint8[]",
+                    },
+                    {
+                      components: [
+                        {
+                          internalType: "int16",
+                          name: "x",
+                          type: "int16",
+                        },
+                        {
+                          internalType: "int16",
+                          name: "y",
+                          type: "int16",
+                        },
+                        {
+                          internalType: "int16",
+                          name: "z",
+                          type: "int16",
+                        },
+                      ],
+                      internalType: "struct VoxelCoord[]",
+                      name: "relativePositions",
+                      type: "tuple[]",
+                    },
+                  ],
+                  internalType: "struct Build",
+                  name: "blueprint",
+                  type: "tuple",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "int16",
+                      name: "x",
+                      type: "int16",
+                    },
+                    {
+                      internalType: "int16",
+                      name: "y",
+                      type: "int16",
+                    },
+                    {
+                      internalType: "int16",
+                      name: "z",
+                      type: "int16",
+                    },
+                  ],
+                  internalType: "struct VoxelCoord[]",
+                  name: "locations",
+                  type: "tuple[]",
+                },
+              ],
+              internalType: "struct ListEntry[]",
+              name: "",
+              type: "tuple[]",
             },
           ],
           stateMutability: "view",
@@ -873,13 +993,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "withdraw",
-          outputs: [],
-          stateMutability: "nonpayable",
           type: "function",
         },
       ],
