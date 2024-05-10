@@ -81,7 +81,7 @@ export const SetupBiomesClient: React.FC = ({}) => {
 
   const buildGetter = viewFunctions.find(({ fn }) => fn.name === "getBuild");
   const matchAreaGetter = viewFunctions.find(({ fn }) => fn.name === "getMatchArea");
-  const registeredPlayersGetter = viewFunctions.find(({ fn }) => fn.name === "getRegisteredPlayerEntityIds");
+  const registeredPlayersGetter = viewFunctions.find(({ fn }) => fn.name === "getAvatars");
 
   return (
     <div className="flex-1 flex flex-col h-full p-mono">
@@ -116,7 +116,7 @@ export const SetupBiomesClient: React.FC = ({}) => {
                     abi={deployedContractData.abi as Abi}
                     abiFunction={matchAreaGetter.fn}
                     contractAddress={deployedContractData.address}
-                    key={"getRegisteredPlayerEntityIds"}
+                    key={"getAvatars"}
                     refreshDisplayVariables={refreshDisplayVariables}
                     inheritedFrom={matchAreaGetter.inheritedFrom}
                     // poll={2000}
@@ -186,7 +186,7 @@ export const SetupBiomesClient: React.FC = ({}) => {
                     abi={deployedContractData.abi as Abi}
                     abiFunction={registeredPlayersGetter.fn}
                     contractAddress={deployedContractData.address}
-                    key={"getRegisteredPlayerEntityIds"}
+                    key={"getAvatars"}
                     refreshDisplayVariables={refreshDisplayVariables}
                     inheritedFrom={registeredPlayersGetter.inheritedFrom}
                     poll={2000}

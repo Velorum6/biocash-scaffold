@@ -64,7 +64,7 @@ export const Game: React.FC = ({}) => {
 
   const isStartedGetter = viewFunctions.find(({ fn }) => fn.name === "isGameStarted");
   const isEndedGetter = viewFunctions.find(({ fn }) => fn.name === "gameEndBlock");
-  const registeredPlayersGetter = viewFunctions.find(({ fn }) => fn.name === "getRegisteredPlayerEntityIds");
+  const registeredPlayersGetter = viewFunctions.find(({ fn }) => fn.name === "getAvatars");
   const killsGetter = viewFunctions.find(({ fn }) => fn.name === "getKillsLeaderboard");
   const rewardPoolGetter = viewFunctions.find(({ fn }) => fn.name === "getRewardPool");
 
@@ -172,7 +172,7 @@ export const Game: React.FC = ({}) => {
                   abi={deployedContractData.abi as Abi}
                   abiFunction={registeredPlayersGetter.fn}
                   contractAddress={deployedContractData.address}
-                  key={"getRegisteredPlayerEntityIds"}
+                  key={"getAvatars"}
                   refreshDisplayVariables={refreshDisplayVariables}
                   inheritedFrom={registeredPlayersGetter.inheritedFrom}
                   poll={4000}

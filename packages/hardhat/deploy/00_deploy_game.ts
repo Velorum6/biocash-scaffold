@@ -28,12 +28,7 @@ const deployGameContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   const chainId = await hre.getChainId();
 
-  const useBiomesWorldAddress =
-    Number(chainId) === redstone.id
-      ? BIOMES_MAINNET_WORLD_ADDRESS
-      : Number(chainId) === garnet.id
-      ? BIOMES_TESTNET_WORLD_ADDRESS
-      : "";
+  const useBiomesWorldAddress = "0x5f4da48459a26f9926508746ea280e593476d96d";
   if (useBiomesWorldAddress === "") {
     throw new Error("Biomes World Address not found for this chain");
   }
