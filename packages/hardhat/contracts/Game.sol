@@ -16,6 +16,7 @@ import { IWorld } from "@biomesaw/world/src/codegen/world/IWorld.sol";
 import { VoxelCoord } from "@biomesaw/utils/src/Types.sol";
 import { Area, insideAreaIgnoreY } from "../utils/AreaUtils.sol";
 import { hasBeforeAndAfterSystemHook, getEntityAtCoord, getEntityFromPlayer, getPosition, getIsLoggedOff, getPlayerFromEntity } from "../utils/EntityUtils.sol";
+import { NamedArea, GameState } from "../utils/GameUtils.sol";
 
 struct LeaderboardEntry {
   address player;
@@ -383,14 +384,6 @@ contract Game is IOptionalSystemHook {
     return address(this).balance;
   }
 
-  function getRegisteredPlayerEntityIds() external view returns (bytes32[] memory) {
-    bytes32[] memory registeredPlayerEntityIds = new bytes32[](alivePlayers.length);
-    for (uint i = 0; i < alivePlayers.length; i++) {
-      registeredPlayerEntityIds[i] = getEntityFromPlayer(alivePlayers[i]);
-    }
-    return registeredPlayerEntityIds;
-  }
-
   function getAlivePlayers() external view returns (address[] memory) {
     return alivePlayers;
   }
@@ -420,5 +413,37 @@ contract Game is IOptionalSystemHook {
       });
     }
     return leaderboard;
+  }
+
+  function getDisplayName() external view returns (string memory) {
+    return "Deathmatch";
+  }
+
+  function getAvatars() external view returns (bytes32[] memory) {
+    bytes32[] memory registeredPlayerEntityIds = new bytes32[](alivePlayers.length);
+    for (uint i = 0; i < alivePlayers.length; i++) {
+      registeredPlayerEntityIds[i] = getEntityFromPlayer(alivePlayers[i]);
+    }
+    return registeredPlayerEntityIds;
+  }
+
+  function getAreas() external view returns (NamedArea[] memory) {
+    NamedArea[] memory areas = new NamedArea[](1);
+    areas[0] = NamedArea({ name: "Match Area", area: matchArea });
+    return areas;
+  }
+
+  function getState() external view returns (GameState) {
+    if (!isGameStarted) {
+      return GameState.Waiting;
+    } else if (block.number > gameEndBlock) {
+      return GameState.Finished;
+    } else {
+      return GameState.Active;
+    }
+  }
+
+  function getGameEndBlock() external view returns (uint256) {
+    return gameEndBlock;
   }
 }

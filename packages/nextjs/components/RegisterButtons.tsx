@@ -45,12 +45,7 @@ export const RegisterHookButton: React.FC<HookButtonProps> = ({
   const publicClient = usePublicClient({ chainId: targetNetwork.id });
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const useBiomesWorldAddress =
-    publicClient?.chain.id == redstone.id
-      ? BIOMES_MAINNET_WORLD_ADDRESS
-      : publicClient?.chain.id == garnet.id
-      ? BIOMES_TESTNET_WORLD_ADDRESS
-      : "";
+  const useBiomesWorldAddress = "0x5f4da48459a26f9926508746ea280e593476d96d";
 
   const anyCallDataHash = "0x0000000000000000000000000000000000000000000000000000000000000000";
   const registerSystemCalls = systemIdNames.map(systemIdName => {
@@ -210,12 +205,7 @@ export const RegisterDelegationButton: React.FC<DelegationButtonProps> = ({
   const { targetNetwork } = useTargetNetwork();
   const publicClient = usePublicClient({ chainId: targetNetwork.id });
 
-  const useBiomesWorldAddress =
-    publicClient?.chain.id == redstone.id
-      ? BIOMES_MAINNET_WORLD_ADDRESS
-      : publicClient?.chain.id == garnet.id
-      ? BIOMES_TESTNET_WORLD_ADDRESS
-      : "";
+  const useBiomesWorldAddress = "0x5f4da48459a26f9926508746ea280e593476d96d";
 
   const emptyInitCallData = "0x0000000000000000000000000000000000000000000000000000000000000000";
   const UNLIMITED_DELEGATION = resourceToHex({ type: "system", namespace: "", name: "unlimited" });
