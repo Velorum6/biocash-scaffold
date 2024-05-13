@@ -14,6 +14,7 @@ const GameRequiredHooks: string[] = ["TransferSystem"];
 export const RegisterBiomes: React.FC = ({}) => {
   const { address: connectedAddress } = useAccount();
   const { targetNetwork } = useTargetNetwork();
+  const contractsData = getAllContracts(targetNetwork);
   const publicClient = usePublicClient({ chainId: targetNetwork.id });
   const { data: deployedContractData, isLoading: deployedContractLoading } = useDeployedContractInfo("Game");
 
