@@ -1,0 +1,12 @@
+.tutorial-img {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+    border-radius: 3%;                          
+    width: 700px;                              
+    height: auto;
+    margin: 10px;                              
+  }
+  .img-container {
+    background-color: rgb(22, 11, 33);
+    margin: 20px;
+    padding: 10px;
+  }
