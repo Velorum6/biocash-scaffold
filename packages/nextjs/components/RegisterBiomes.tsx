@@ -7,8 +7,6 @@ import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useGlobalState } from "~~/services/store/store";
 import { getAllContracts } from "~~/utils/scaffold-eth/contractsData";
 
-const contractsData = getAllContracts();
-
 const GameRequiredHooks: string[] = ["TransferSystem"];
 
 export const RegisterBiomes: React.FC = ({}) => {
