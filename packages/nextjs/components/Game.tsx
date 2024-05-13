@@ -5,7 +5,7 @@ import { DisplayVariable, displayTxResult } from "~~/app/debug/_components/contr
 import { useDeployedContractInfo } from "~~/hooks/scaffold-eth";
 import { GenericContract, InheritedFunctions } from "~~/utils/scaffold-eth/contract";
 
-export const Game: React.FC = ({}) => {
+export const Game: React.FC = ({ }) => {
   const { address: connectedAddress } = useAccount();
   const [refreshDisplayVariables] = useReducer(value => !value, false);
   const { data: deployedContractData, isLoading: deployedContractLoading } = useDeployedContractInfo("Game");
@@ -63,8 +63,14 @@ export const Game: React.FC = ({}) => {
           <div style={{ width: "80%" }} className="flex flex-col gap-12">
             <div>
               <h1 className="text-3xl font-bold text-left mt-4">Play Game</h1>
-              <h1 className="text-left mt-4" style={{ lineHeight: "normal", margin: "0", wordWrap: "break-word" }}>
-                Your Main Game Screen
+              <h1 className="text-left mt-4" style={{ lineHeight: "normal", margin: "0", marginBottom: "20px", wordWrap: "break-word" }}>
+                Welcome to the BioCash Extension and thanks for trying out our project
+              </h1>
+              <h1 className="text-left mt-4" style={{ lineHeight: "normal", margin: "0", marginBottom: "20px", wordWrap: "break-word" }}>
+                Right now you should be registered and be able to receive Biocash for depositing items inside the chests, press the "How To Play" button at the top-left of this page to see how to do it and start receiving BioCash
+              </h1>
+              <h1 className="text-left mt-4" style={{ lineHeight: "normal", margin: "0", marginBottom: "20px", wordWrap: "break-word" }}>
+                You can also check your balance of BioCash at the right of this page inside a green rectangle
               </h1>
             </div>
             <div></div>
@@ -91,9 +97,12 @@ export const Game: React.FC = ({}) => {
                     style={{ backgroundColor: "#42a232" }}
                   >
                     <div className="text-sm font-bold flex justify-center items-center">
-                      <span>YOUR GETTER</span> <span>{RefreshButton}</span>
+                      <span>YOUR BALANCE</span> <span>{RefreshButton}</span>
                     </div>
-                    <div className="text-4xl mt-2">{displayTxResult(result)}</div>
+                    <div className="text-4xl mt-2" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      {displayTxResult(result)}
+                      <img src="/Biocash.png" style={{ marginLeft: '10px', width: '45px' }} />
+                    </div>
                   </div>
                 );
               }}
